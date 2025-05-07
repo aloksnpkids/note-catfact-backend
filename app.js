@@ -8,7 +8,10 @@ const swaggerSpec = require('./swagger');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: '*'
+  }));
+  
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(express.json());
 app.use(morgan('dev'));
